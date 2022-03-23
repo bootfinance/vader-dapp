@@ -43,7 +43,7 @@ const Bond = (props) => {
 	const [slippageTol0, setSlippageTol0] = useSessionStorage('bondSlippageTol042434310', 6)
 	const [slippageTolAmount1, setSlippageTolAmount1] = useSessionStorage('bondSlippageTol1Amount142344310', '')
 	const [slippageTol1, setSlippageTol1] = useSessionStorage('bondSlippageTol142434310', 2)
-	const [useLPTokens, setUseLPTokens] = useSessionStorage('bondUseLPTokens', false)
+	const [useLPTokens, setUseLPTokens] = useSessionStorage('bondUseLPTokens', true)
 	const [working, setWorking] = useState(false)
 	const { data: bondInfo, refetch: refetchBondInfo } = useBondInfo(bond?.[0]?.address, wallet.account, true)
 	const [pendingPayout, setPendingPayoutBlock] = useBondPendingPayout(bond?.[0]?.address)
@@ -306,10 +306,10 @@ const Bond = (props) => {
 	}, [address])
 
 	useEffect(() => {
-		if(useLPTokens) {
-			setToken0(bond?.[0]?.principal)
-		}
-		return () => setToken0(defaults.ether)
+		// if(useLPTokens) {
+		setToken0(bond?.[0]?.principal)
+		// }
+		// return () => setToken0(defaults.ether)
 	}, [useLPTokens, bond])
 
 	useEffect(() => {
@@ -536,6 +536,12 @@ const Bond = (props) => {
 													fontSize={{ base: '1rem', md: '1.24rem' }}
 													fontWeight='bolder'>
 													Amount
+												</Text>
+												<Text>
+													{prettifyCurrency(
+														ethers.utils.formatUnits(token0balance),
+														0,
+														5)} available
 												</Text>
 											</Flex>
 											<Flex
@@ -810,6 +816,7 @@ const Bond = (props) => {
 											flexDir='row'
 											justifyContent='space-between'
 										>
+											{/*
 											<FormLabel
 												htmlFor='useLPTokens'
 												fontWeight='bolder'
@@ -821,6 +828,7 @@ const Bond = (props) => {
 												size='lg'
 												isChecked={useLPTokens}
 												onChange={() => setUseLPTokens(!useLPTokens)}/>
+											*/}
 										</FormControl>
 									</Flex>
 								</Flex>
@@ -983,54 +991,52 @@ const Bond = (props) => {
 											disabled={working}
 											onClick={() => submit()}
 										>
-											<Text fontWeight="bold">
-												{wallet.account &&
-													<>
-														{!working &&
-															<>
-																{tabIndex === 0 &&
-																	<>
-																		{token0 && !token0Approved &&
-																	<>
-																		Approve {token0.symbol}
-																	</>
-																		}
-																		{token0 && token0Approved &&
-																	<>
-																		Purchase
-																	</>
-																		}
-																	</>
-																}
-																{tabIndex === 1 &&
-																	<>
-																		Claim
-																	</>
-																}
-															</>
-														}
-														{working &&
-															<>
-																<Spinner />
-															</>
-														}
-													</>
-												}
-												{!wallet.account &&
-													<>
-														{tabIndex === 0 &&
-															<>
-																Purchase
-															</>
-														}
-														{tabIndex === 1 &&
-															<>
-																Claim
-															</>
-														}
-													</>
-												}
-											</Text>
+											{wallet.account &&
+												<>
+													{!working &&
+														<Text fontWeight="bold">
+															{tabIndex === 0 &&
+																<>
+																	{token0 && !token0Approved &&
+																<>
+																	Approve {token0.symbol}
+																</>
+																	}
+																	{token0 && token0Approved &&
+																<>
+																	Purchase
+																</>
+																	}
+																</>
+															}
+															{tabIndex === 1 &&
+																<>
+																	Claim
+																</>
+															}
+														</Text>
+													}
+													{working &&
+														<>
+															<Spinner />
+														</>
+													}
+												</>
+											}
+											{!wallet.account &&
+												<>
+													{tabIndex === 0 &&
+														<>
+															Purchase
+														</>
+													}
+													{tabIndex === 1 &&
+														<>
+															Claim
+														</>
+													}
+												</>
+											}
 										</Button>
 									</Flex>
 								</Flex>

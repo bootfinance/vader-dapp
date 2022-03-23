@@ -1,8 +1,8 @@
 [
 	{
-		"name":"Vader Token List",
-		"url":"https://raw.githubusercontent.com/vetherasset/vader-tokens/master/index.json",
-		"logoURI":"https://raw.githubusercontent.com/vetherasset/branding/main/vader/vader-symbol-coingecko.png",
+		"name":"Boot Finance Token List",
+		"url":"https://raw.githubusercontent.com/bootfinance/contracts/main/tokens.json",
+		"logoURI":"https://raw.githubusercontent.com/bootfinance/boot-front/master/src/images/logoDark.png?token=GHSAT0AAAAAABR23YE3UWLKUWRKKONUPJV2YRKEJPQ",
 		"enabled":true
 	}
 ]

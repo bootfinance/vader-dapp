@@ -33,24 +33,38 @@ const bonds = [
 	},
 ]
 
-const bondsKovan = [
+const bondsRinkeby = [
 	{
-		...bonds[0],
-		'address':'0xd932cc11F49df7638999E2a313e5808667363750',
-		'zap':'0x6D51Ef96C362fdea02c61Ce2dD1A263B5ABbd4B9',
+		'name': 'Uniswap V2 BOOTusd/BOOT LP',
+		'address':'0x8154495B68741Cba832803EE802f4b6192377967',
 		'principal': {
-			...bonds[0].principal,
-			'address':'0xC42706E83433580dd8d865a30e2Ae61082056007',
+			'address':'0xf28701F4655412403077802E230fe59d6C9bCda6',
+			'name':'Uniswap V2 BOOT/BOOTusd LP',
+			'symbol':'UNI-V2',
+			'decimals':18,
 		},
 		'token0': {
-			...bonds[0].token0,
-			'address':'0xB46dbd07ce34813623FB0643b21DCC8D0268107D',
+			'address':'0x7bcfded5ff78bef4eafad04747ea05fe6904c4ae',
+			'name':'BOOT USD',
+			'symbol':'BOOTusd',
+			'decimals':18,
+			'logoURI':'https://raw.githubusercontent.com/vetherasset/vader-dapp/65a55cc1d1e89e1549b3d119d296ac8d701a37ea/src/assets/png/eth-diamond-purple-purple.png',
+		},
+		'token1': {
+			'address':'0x9C2Ae69186f925108D9518a999978D5259A5858A',
+			'name':'Boot Finance',
+			'symbol':'BOOT',
+			'decimals':18,
+			'logoURI':'https://raw.githubusercontent.com/vetherasset/branding/main/vader/vader-symbol-w-ring.png',
 		},
 		'payout': {
-			...bonds[0].payout,
-			'address':'0xB46dbd07ce34813623FB0643b21DCC8D0268107D',
+			'address':'0x9C2Ae69186f925108D9518a999978D5259A5858A',
+			'name':'Boot Finance',
+			'symbol':'BOOT',
+			'decimals':18,
+			'logoURI':'https://raw.githubusercontent.com/vetherasset/branding/main/vader/vader-symbol-w-ring.png',
 		},
 	},
 ]
 
-export { bonds, bondsKovan }
+export { bonds, bondsRinkeby }

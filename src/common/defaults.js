@@ -3,7 +3,7 @@ import { QueryClient } from 'react-query'
 import { ethers } from 'ethers'
 import tokenListSources from '../tokenListSources'
 import vaderTokens from '../artifacts/json/vaderTokens'
-import { bonds, bondsKovan } from '../artifacts/js/vaderBonds'
+import { bonds, bondsRinkeby } from '../artifacts/js/vaderBonds'
 import snapshot from '../artifacts/json/vetherSnapshot'
 
 const defaults = {}
@@ -12,6 +12,7 @@ defaults.network = {}
 defaults.network.chainId = Number(process.env.REACT_APP_CHAIN_ID)
 defaults.network.provider = new ethers.providers.FallbackProvider(
 	[
+		/*
 		{
 			provider: new ethers.providers.AlchemyProvider(
 				defaults.network.chainId,
@@ -21,6 +22,7 @@ defaults.network.provider = new ethers.providers.FallbackProvider(
 			priority: 1,
 			stallTimeout: 2000,
 		},
+		*/
 		{
 			provider: new ethers.providers.InfuraProvider(
 				defaults.network.chainId,
@@ -68,8 +70,8 @@ defaults.network.connectors = {
 			[defaults.network.chainId]: (
 				defaults.network.chainId === 1 ?
 					`https://eth-mainnet.alchemyapi.io/v2/${process.env.REACT_APP_ALCHEMY_KEY}` :
-					defaults.network.chainId === 42 ?
-						`https://eth-kovan.alchemyapi.io/v2/${process.env.REACT_APP_ALCHEMY_KEY}` :
+					defaults.network.chainId === 4 ?
+						`https://eth-rinkeby.alchemyapi.io/v2/${process.env.REACT_APP_ALCHEMY_KEY}` :
 						undefined
 			),
 		},
@@ -142,14 +144,14 @@ defaults.api.graphql.pollInterval = 100000
 
 defaults.api.etherscanUrl = (
 	defaults.network.chainId === 1 ? 'https://etherscan.io' :
-		defaults.network.chainId === 42 ? 'https://kovan.etherscan.io' :
+		defaults.network.chainId === 4 ? 'https://rinkeby.etherscan.io' :
 			undefined
 )
 
 defaults.address = {}
 defaults.address.vader = (
-	defaults.network.chainId === 1 ? '0x2602278ee1882889b946eb11dc0e810075650983' :
-		defaults.network.chainId === 42 ? '0xcCb3AeF7Baa506e2D05193e38e88459F68AC1a8F' :
+	defaults.network.chainId === 1 ? '0x0337fe811809A0aaf9B5D07945b39E473dE4c46E' :
+		defaults.network.chainId === 4 ? '0x9C2Ae69186f925108D9518a999978D5259A5858A' :
 			undefined
 )
 defaults.address.vether = (
@@ -205,8 +207,8 @@ defaults.ether = {
 defaults.vader = {
 	'chainId':defaults.network.chainId,
 	'address':defaults.address.vader,
-	'name':'VADER',
-	'symbol':'VADER',
+	'name':'Boot Finance',
+	'symbol':'BOOT',
 	'decimals':18,
 	'logoURI':'https://raw.githubusercontent.com/vetherasset/branding/main/vader/vader-symbol-w-ring.png',
 },
@@ -271,10 +273,10 @@ defaults.unstakeable = [
 ]
 
 defaults.bonds = defaults.network.chainId === 1 ? bonds :
-	defaults.network.chainId === 42 ? bondsKovan :
+	defaults.network.chainId === 4 ? bondsRinkeby :
 		[]
 
-defaults.bondConsideredSoldOutMinVader = ethers.BigNumber.from('300000000000000000000')
+defaults.bondConsideredSoldOutMinVader = ethers.BigNumber.from('5000000000000000000')
 defaults.bondZapMinPayoutAllowed = '10000000000000000'
 
 defaults.xVaderAPRBasedNumberOfRecords = 14
