@@ -40,13 +40,13 @@ const prettifyCurrency = (amount, minFractionDigits = 0, maxFractionDigits = 2, 
 		cryptocurrency = true
 	}
 
-	if (currency === 'VADER') {
+	if (currency === 'BOOT') {
 		options = {
 			style: 'decimal',
 			minimumFractionDigits: minFractionDigits,
 			maximumFractionDigits: maxFractionDigits,
 		}
-		symbol = 'VADER'
+		symbol = 'BOOT'
 		symbolPrepended = false
 		cryptocurrency = true
 	}

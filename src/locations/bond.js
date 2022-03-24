@@ -376,6 +376,7 @@ const Bond = (props) => {
 					,
 				)
 					.then(n => {
+						console.log(`bondPayoutFor ${value} is ${n}`)
 						setPurchaseValue(n)
 					})
 			}
@@ -894,7 +895,7 @@ const Bond = (props) => {
 																	purchaseValue !== '' ? ethers.utils.formatUnits(purchaseValue, 18) : 0,
 																	0,
 																	2,
-																	'VADER')
+																	'BOOT')
 															}
 														</>
 														}
@@ -959,7 +960,7 @@ const Bond = (props) => {
 														ethers.utils.formatUnits(pendingPayout, defaults.vader.decimals),
 														0,
 														5,
-														'VADER')
+														'BOOT')
 												}
 											</Box>
 
@@ -1173,7 +1174,7 @@ const Overview = (props) => {
 											props.bondInfo?.[0] ? ethers.utils.formatUnits(props.bondInfo?.[0], defaults.vader.decimals) : 0,
 											0,
 											5,
-											'VADER',
+											'BOOT',
 										)
 										}
 									</>
@@ -1258,7 +1259,7 @@ const Breakdown = (props) => {
 											ethers.utils.formatUnits(props.treasuryBalance, 18),
 											0,
 											2,
-											'VADER',
+											'BOOT',
 										)}
 									{props.treasuryBalance.lte(defaults.bondConsideredSoldOutMinVader) &&
 										'Sold Out'
@@ -1291,7 +1292,7 @@ const Breakdown = (props) => {
 											ethers.utils.formatUnits(props.maxPayout, 18),
 										0,
 										2,
-										'VADER',
+										'BOOT',
 									)}
 									{props.treasuryBalance.lte(defaults.bondConsideredSoldOutMinVader) &&
 										'Sold Out'
