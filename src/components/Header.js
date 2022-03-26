@@ -13,19 +13,9 @@ export const Header = (props) => {
 	const location = useLocation()
 	const pages = [
 		{
-			name: 'Stake',
-			text: 'Stake',
-			link: '/stake',
-		},
-		{
 			name: 'Bond',
 			text: 'Bond',
 			link: '/bond',
-		},
-		{
-			name: 'Acquire',
-			text: 'Acquire',
-			link: '/acquire',
 		},
 	]
 
@@ -82,17 +72,6 @@ export const Header = (props) => {
 					</>,
 					md: '',
 					lg: <>
-						<LinkExt
-							isExternal href='https://curve.fi/factory/82'>
-							<Button
-								overflow='hidden'
-								height='38px'
-								variant='linkAccent'
-								rightIcon={<Image src='/svg/curvefi.svg' width='32px'/>}
-							>
-								USDV3CRV-f
-							</Button>
-						</LinkExt>
 						<BalanceIndicator/>
 					</>,
 				})}

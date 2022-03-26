@@ -19,9 +19,9 @@ const Bonds = (props) => {
 				<Heading
 					as='h1'
 					size='md'
-					fontSize={{ base: '1.10rem', md: '1.25rem' }}>VADER BONDS AVAILABLE.</Heading>
-					The first step of Vader Protocol&apos;s long-term roadmap to awaken our sustainable Protocol-Owned Liquidity (POL) growth.<br/>
-					Users can purchase discounted Vader by way of Vader Bonds, which are vested over a short duration, by supplying various LP units according to the protocol&apos;s growth needs.
+					fontSize={{ base: '1.10rem', md: '1.25rem' }}>BOOT BONDS AVAILABLE.</Heading>
+					Boot Finance wants to setup a Protocol-Owned Liquidity (POL) pool to collaterise.<br/>
+					Users can purchase discounted BOOT by way of BOOT Bonds, which are vested over a short duration, by supplying various LP units according to the protocol&apos;s growth needs.
 			</Flex>
 			<Flex
 				m='0 auto'

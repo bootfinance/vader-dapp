@@ -43,7 +43,7 @@ export const Footer = (props) => {
 				direction={['column', 'row']}
 			>
 				<Box {...linkWrapper}>
-					<Link {...linkStyle} isExternal href='https://vaderprotocol.io/whitepaper'>
+					<Link {...linkStyle} isExternal href='https://bootfinance.notion.site/Litepaper-v0-9-eaf14e3fbff443c494eb43059ce29734'>
 						<IoIosPaper style={iconStyle}/>
 							Whitepaper
 					</Link>
@@ -107,7 +107,7 @@ export const Footer = (props) => {
 					</Link>
 				</Box>
 				<Box {...linkWrapper}>
-					<Link {...linkStyle} isExternal href='https://docs.vaderprotocol.io/'>
+					<Link {...linkStyle} isExternal href='https://bootfinance.notion.site/Boot-finance-FAQ-b855dfc4651146768bd49015d510bdd4'>
 						<FaBookOpen style={iconStyle}/>
 						Docs
 					</Link>
@@ -118,17 +118,12 @@ export const Footer = (props) => {
 				gridGap={['1.3rem', '9rem']}
 			>
 				<Box {...linkWrapper}>
-					<Link {...linkStyle} isExternal href='https://discord.com/invite/vaderprotocol'>
+					<Link {...linkStyle} isExternal href='https://discord.gg/qVNFJrzj'>
 						<FaDiscord style={soloIconStyle}/>
 					</Link>
 				</Box>
 				<Box {...linkWrapper}>
-					<Link {...linkStyle} isExternal href='https://t.me/vaderprotocol'>
-						<FaTelegramPlane style={soloIconStyle}/>
-					</Link>
-				</Box>
-				<Box {...linkWrapper}>
-					<Link {...linkStyle} isExternal href='https://github.com/vetherasset/'>
+					<Link {...linkStyle} isExternal href='https://github.com/bootfinance/'>
 						<FaGithub style={soloIconStyle}/>
 					</Link>
 				</Box>
