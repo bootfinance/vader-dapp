@@ -55,8 +55,8 @@ defaults.network.connectors = {
 				undefined
 		),
 		appName: 'Vader Protocol',
-		appLogoUrl: 'https://raw.githubusercontent.com/vetherasset/' +
-			'branding/main/vader/vader-logo-wo-ring.svg',
+		appLogoUrl: 'https://assets.website-files.com/' +
+			'61ae0d8ed7b1917746ece3a2/61b1dc02bd76743dd3dedfdc_logo.png',
 		meta: {
 			key: 'walletlink',
 			name: 'Coinbase Wallet',
@@ -210,7 +210,7 @@ defaults.vader = {
 	'name':'Boot Finance',
 	'symbol':'BOOT',
 	'decimals':18,
-	'logoURI':'https://raw.githubusercontent.com/vetherasset/branding/main/vader/vader-symbol-w-ring.png',
+	'logoURI':'https://assets.website-files.com/61ae0d8ed7b1917746ece3a2/61b1dc02bd76743dd3dedfdc_logo.png',
 },
 defaults.vader.conversionRate = 10000
 
