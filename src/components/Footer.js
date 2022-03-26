@@ -123,7 +123,7 @@ export const Footer = (props) => {
 					</Link>
 				</Box>
 				<Box {...linkWrapper}>
-					<Link {...linkStyle} isExternal href='https://github.com/bootfinance'>
+					<Link {...linkStyle} isExternal href='https://github.com/bootfinance/'>
 						<FaGithub style={soloIconStyle}/>
 					</Link>
 				</Box>
