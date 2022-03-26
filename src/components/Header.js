@@ -72,17 +72,6 @@ export const Header = (props) => {
 					</>,
 					md: '',
 					lg: <>
-						<LinkExt
-							isExternal href='https://curve.fi/factory/82'>
-							<Button
-								overflow='hidden'
-								height='38px'
-								variant='linkAccent'
-								rightIcon={<Image src='/svg/curvefi.svg' width='32px'/>}
-							>
-								USDV3CRV-f
-							</Button>
-						</LinkExt>
 						<BalanceIndicator/>
 					</>,
 				})}
