@@ -55,14 +55,14 @@ const bondsRinkeby = [
 			'name':'Boot Finance',
 			'symbol':'BOOT',
 			'decimals':18,
-			'logoURI':'https://raw.githubusercontent.com/vetherasset/branding/main/vader/vader-symbol-w-ring.png',
+			'logoURI':'https://sale.boot.finance/logo192.png',
 		},
 		'payout': {
 			'address':'0x9C2Ae69186f925108D9518a999978D5259A5858A',
 			'name':'Boot Finance',
 			'symbol':'BOOT',
 			'decimals':18,
-			'logoURI':'https://raw.githubusercontent.com/vetherasset/branding/main/vader/vader-symbol-w-ring.png',
+			'logoURI':'https://sale.boot.finance/logo192.png',
 		},
 	},
 ]
