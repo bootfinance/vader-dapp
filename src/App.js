@@ -29,9 +29,11 @@ const App = () => {
 						position='relative'
 						zIndex='2'/>
 					<Switch>
+						{/*
 						<Route path='/' exact render={() =>
 							<Stake position='relative' zIndex='1'/>
 						}/>
+						*/}
 						<Route path='/bond' exact render={() =>
 							<Bonds position='relative' zIndex='1'/>
 						}/>
@@ -42,7 +44,7 @@ const App = () => {
 							<Burn position='relative' zIndex='1'/>
 						}/>
 						<Route path='*' render={() =>
-							<Redirect to={'/'} />
+							<Redirect to={'/bond'} />
 						} />
 					</Switch>
 					<Footer
