@@ -92,8 +92,8 @@ const walletNotConnected = {
 }
 
 const vaderconverted = {
-	title: 'VADER Token burnt for USDV',
-	description: 'Your VADER tokens were successfully burnt for USDV.',
+	title: 'BOOT Token burnt for USDV',
+	description: 'Your BOOT tokens were successfully burnt for BOOTusd.',
 	status: 'success',
 	duration: defaults.toast.duration,
 	isClosable: defaults.toast.closable,
@@ -101,8 +101,8 @@ const vaderconverted = {
 }
 
 const vaderclaimed = {
-	title: 'VADER succesfully claimed',
-	description: 'Your VADER tokens were successfully claimed.',
+	title: 'BOOT succesfully claimed',
+	description: 'Your BOOT tokens were successfully claimed.',
 	status: 'success',
 	duration: defaults.toast.duration,
 	isClosable: defaults.toast.closable,
@@ -119,8 +119,8 @@ const dailyLimitReached = {
 }
 
 const usdvredeemed = {
-	title: 'USDV burnt for VADER Token',
-	description: 'Your USDV tokens were successfully burnt for VADER.',
+	title: 'BOOTusd burnt for BOOT Token',
+	description: 'Your BOOTusd tokens were successfully burnt for BOOT.',
 	status: 'success',
 	duration: defaults.toast.duration,
 	isClosable: defaults.toast.closable,
@@ -128,8 +128,8 @@ const usdvredeemed = {
 }
 
 const vethupgraded = {
-	title: 'VETH burnt for VADER Token',
-	description: 'Your VETH tokens were succesfully burnt for VADER.',
+	title: 'VETH burnt for BOOT Token',
+	description: 'Your VETH tokens were succesfully burnt for BOOT.',
 	status: 'success',
 	duration: defaults.toast.duration,
 	isClosable: defaults.toast.closable,
@@ -201,8 +201,8 @@ const positionOpened = {
 }
 
 const staked = {
-	title: 'VADER tokens staked',
-	description: 'Your VADER tokens have been staked succesfully.',
+	title: 'BOOT tokens staked',
+	description: 'Your BOOT tokens have been staked succesfully.',
 	status: 'success',
 	duration: defaults.toast.duration,
 	isClosable: defaults.toast.closable,

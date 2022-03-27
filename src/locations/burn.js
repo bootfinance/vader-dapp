@@ -1096,20 +1096,20 @@ const Burn = (props) => {
 													ethers.utils.formatUnits(claimableVeth, 18),
 													0,
 													2,
-													'VADER',
+													'BOOT',
 												)}
 											</>
 										}
 									</>
 						}
-						{tokenSelect && tokenSelect?.symbol !== 'VETH' && !!uniswapTWAP?.data &&
+						{tokenSelect && tokenSelect?.symbol !== 'BOOT' && !!uniswapTWAP?.data &&
 									<>
 										{!!uniswapTWAP?.data && conversionFactor?.gt(0) &&
 											<>
 												{inputAmount && !submitOption &&
 													<>
 														{prettifyCurrency(
-															tokenSelect?.symbol === 'USDV' ?
+															tokenSelect?.symbol === 'BOOTusd' ?
 																(ethers.utils.formatEther(
 																	(value?.mul(usdcTWAP).div(ethers.utils.parseUnits('1', 18)))
 																		.sub(usdcTWAP?.mul(fee).div(ethers.utils.parseUnits('1', 18))),
@@ -1396,7 +1396,7 @@ const Breakdown = (props) => {
 								<>
 									{prettifyCurrency(
 										ethers.utils.formatUnits(
-											props.token.symbol === 'USDV' ?
+											props.token.symbol === 'BOOTusd' ?
 												ethers.utils.parseEther(
 													String(
 														1 /
@@ -1405,7 +1405,7 @@ const Breakdown = (props) => {
 												) : uniswapTWAP?.data,
 											props.token.decimals),
 										0,
-										props.token.symbol === 'VADER' ? 5 : 2,
+										props.token.symbol === 'BOOT' ? 5 : 2,
 										props.token.convertsTo.symbol,
 									)}
 								</>
@@ -1441,7 +1441,7 @@ const Breakdown = (props) => {
 					<Container p='0'>
 						<Box
 							textAlign='right'>
-							{props.token.symbol === 'VADER' &&
+							{props.token.symbol === 'BOOT' &&
 								<>
 									{mintLimitRemains &&
 										<>
@@ -1450,7 +1450,7 @@ const Breakdown = (props) => {
 									}
 								</>
 							}
-							{props.token.symbol === 'USDV' &&
+							{props.token.symbol === 'BOOTusd' &&
 								<>
 									{burnLimitRemains &&
 										<>
@@ -1542,7 +1542,7 @@ const VethBreakdown = (props) => {
 							Number(defaults.redeemables[0].snapshot[wallet.account]) > 0 &&
 								<>
 									{prettifyCurrency(
-										(ethers.utils.formatUnits(defaults.redeemables[0].snapshot[wallet.account], 18) * defaults.vader.conversionRate), 0, 5, 'VADER')
+										(ethers.utils.formatUnits(defaults.redeemables[0].snapshot[wallet.account], 18) * defaults.vader.conversionRate), 0, 5, 'BOOT')
 									}
 								</>
 								}
@@ -1569,7 +1569,7 @@ const VethBreakdown = (props) => {
 											- Number(ethers.utils.formatUnits(vester?.[0], 18)),
 													0,
 													5,
-								 		'VADER',
+								 		'BOOT',
 												)}
 											</Box>
 										</Container>
@@ -1594,7 +1594,7 @@ const VethBreakdown = (props) => {
 													<>
 														{prettifyCurrency(
 															ethers.utils.formatUnits(
-																vester?.[0]?.sub(props.claimable), 18), 0, 4, 'VADER',
+																vester?.[0]?.sub(props.claimable), 18), 0, 4, 'BOOT',
 														)}
 													</>
 												}
@@ -1620,7 +1620,7 @@ const VethBreakdown = (props) => {
 										ethers.utils.formatUnits(props.claimable, 18),
 										0,
 										5,
-										'VADER',
+										'BOOT',
 									)}
 								</>
 							}
@@ -1630,7 +1630,7 @@ const VethBreakdown = (props) => {
 										((Number(ethers.utils.formatUnits(defaults.redeemables?.[0]?.snapshot[wallet.account], 18) * defaults.vader.conversionRate)) / 2),
 										0,
 										5,
-										'VADER',
+										'BOOT',
 									)}
 								</>
 							}
