@@ -24,7 +24,7 @@ const App = () => {
 				>
 					<Header
 						width={defaults.layout.header.width}
-						p={defaults.layout.header.padding}
+						pr={defaults.layout.header.padding}
 						justifyContent='center'
 						position='relative'
 						zIndex='2'/>

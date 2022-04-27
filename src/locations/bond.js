@@ -392,7 +392,7 @@ const Bond = (props) => {
 				<Box
 					maxWidth={defaults.layout.container.md.width}
 					m='0 auto'
-					p={{ base: '3rem .4rem 0', md: '5rem 0 0' }}
+					p={{ base: '0 .4rem', md: '0 0' }}
 					{...props}
 				>
 			 <Flex

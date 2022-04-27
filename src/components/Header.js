@@ -41,7 +41,7 @@ export const Header = (props) => {
 				textTransform='capitalize'
 				layerStyle='colorful'
 				borderRadius='12px'
-				p='0.3rem 0.2rem'
+				p='0rem 0.2rem'
 				display={{ base: 'none', md: 'flex' }}
 			>
 				{pages.map(p =>
@@ -63,6 +63,7 @@ export const Header = (props) => {
 			</Flex>
 			<Flex
  				w={{ md: '100%', sm: '70%' }}
+				pr={'1rem'}
  				justifyContent='flex-end'
 				gridGap={{ base: '7.3px', sm: '17.3px' }}
 			>
