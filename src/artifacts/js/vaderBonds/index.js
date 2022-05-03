@@ -35,12 +35,12 @@ const bonds = [
 
 const bondsRinkeby = [
 	{
-		'name': 'Uniswap V2 BOOTusd/BOOT LP',
+		'name': 'Uni-v2 BOOTusd/BOOT LP Bond',
 		'address':'0x8154495B68741Cba832803EE802f4b6192377967',
 		'principal': {
 			'address':'0xf28701F4655412403077802E230fe59d6C9bCda6',
 			'name':'Uniswap V2 BOOT/BOOTusd LP',
-			'symbol':'UNI-V2',
+			'symbol':'BOOTusdLP',
 			'decimals':18,
 		},
 		'token0': {

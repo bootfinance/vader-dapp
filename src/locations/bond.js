@@ -306,10 +306,10 @@ const Bond = (props) => {
 	}, [address])
 
 	useEffect(() => {
-		// if(useLPTokens) {
-		setToken0(bond?.[0]?.principal)
-		// }
-		// return () => setToken0(defaults.ether)
+		if(useLPTokens) {
+			setToken0(bond?.[0]?.principal)
+		}
+		return () => setToken0(defaults.ether)
 	}, [useLPTokens, bond])
 
 	useEffect(() => {
@@ -493,6 +493,7 @@ const Bond = (props) => {
 									</Tabs>
 
 									<Flex
+										flexGrow="1"
 										pointerEvents={{ base: '', md: `${tabIndex === 1 ? 'none' : ''}` }}
 										opacity={{ base: '1', md: `${tabIndex === 1 ? '0.55' : '1'}` }}
 										flexDir='column'
@@ -542,7 +543,8 @@ const Bond = (props) => {
 													{prettifyCurrency(
 														ethers.utils.formatUnits(token0balance),
 														0,
-														5)} available
+														5,
+														token0?.isEther ? 'ETH' : token0?.symbol)} available
 												</Text>
 											</Flex>
 											<Flex
@@ -575,6 +577,8 @@ const Bond = (props) => {
 															}
 														}}/>
 													<InputRightAddon
+														color="white"
+														background="black"
 														width='auto'
 														borderTopLeftRadius='0.375rem'
 														borderBottomLeftRadius='0.375rem'
@@ -678,7 +682,7 @@ const Bond = (props) => {
 										mt={{ base: '1.2rem', md: '' }}
 										flexDir='column'
 									>
-										<Flex
+										{/* <Flex
 											pointerEvents={tabIndex === 1 ? 'none' : ''}
 											opacity={tabIndex === 1 ? '0.55' : '1'}
 											flexDir='column'
@@ -802,7 +806,7 @@ const Bond = (props) => {
 													</InputRightElement>
 												</InputGroup>
 											</Flex>
-										</Flex>
+										</Flex> */}
 
 										<FormControl
 											d='flex'
@@ -1083,12 +1087,13 @@ const PriceOverview = (props) => {
 						<TagLabel
 							fontSize={{ base: '1.3rem', md: '2.1rem' }}
 						>
-							{bondPrice && usdcEth?.pairs?.[0]?.token0Price && principalEth?.principalPrice &&
+							{bondPrice &&
 								<>
 									{prettifyCurrency(
-										Number(ethers.utils.formatUnits(bondPrice, 18)) *
-										(Number(usdcEth?.pairs?.[0]?.token0Price) * Number(principalEth?.principalPrice)),
-										0, 5)}
+										Number(ethers.utils.formatUnits(bondPrice, 18)),
+										0,
+										5,
+										props.bond?.[0]?.principal?.symbol)}
 								</>
 							}
 						</TagLabel>

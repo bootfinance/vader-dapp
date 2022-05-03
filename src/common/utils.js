@@ -29,13 +29,13 @@ const prettifyCurrency = (amount, minFractionDigits = 0, maxFractionDigits = 2, 
 		cryptocurrency = true
 	}
 
-	if (currency === 'VETH') {
+	if (currency === 'BOOTusdLP') {
 		options = {
 			style: 'decimal',
 			minimumFractionDigits: minFractionDigits,
 			maximumFractionDigits: maxFractionDigits,
 		}
-		symbol = 'VETH'
+		symbol = 'LP'
 		symbolPrepended = false
 		cryptocurrency = true
 	}
