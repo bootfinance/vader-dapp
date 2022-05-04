@@ -1259,13 +1259,17 @@ const Breakdown = (props) => {
 
 	useEffect(() => {
 		if (bondPrice && props.bond?.[0]?.principal?.address) {
-			const lpTokenValue = 0.9
-			const bondValue = lpTokenValue * Number(ethers.utils.formatUnits(bondPrice ? bondPrice : '0', 18))
-			getReserves(props.bond?.[0]?.principal?.address).then(([t0, t1]) => {
-				const marketPrice = Number(ethers.utils.formatUnits(t0, 18)) / Number(ethers.utils.formatUnits(t1, 18))
-				const roi = calculateDifference(marketPrice, bondValue)
-				setROIPercentage(isFinite(roi) ? getPercentage(roi)?.replace('-0', '0') : '')
-			})
+			getReserves(props.bond?.[0]?.principal?.address)
+				.then(([t0, t1]) => {
+					getTotalLiquidity(props.bond?.[0]?.principal?.address)
+						.then(tot => {
+							const lpTokenValue = 2 * Number(ethers.utils.formatUnits(t0, 18)) / Number(ethers.utils.formatUnits(tot, 18))
+							const bondValue = lpTokenValue * Number(ethers.utils.formatUnits(bondPrice ? bondPrice : '0', 18))
+							const marketPrice = Number(ethers.utils.formatUnits(t0, 18)) / Number(ethers.utils.formatUnits(t1, 18))
+							const roi = calculateDifference(marketPrice, bondValue)
+							setROIPercentage(isFinite(roi) ? getPercentage(roi)?.replace('-0', '0') : '')
+						})
+				})
 		}
 	}, [bondPrice, props.bond?.[0]?.principal?.address])
 
