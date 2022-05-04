@@ -9,6 +9,25 @@ import zapEth from '../artifacts/abi/zapEth'
 import uniswapTWAP from '../artifacts/abi/uniswapTWAP'
 import minter from '../artifacts/abi/minter'
 import IUSDV from '../artifacts/abi/IUSDV'
+import uniswapV2PairAbi from '../artifacts/abi/uniswapV2pair'
+
+const getReserves = async (uniswapV2PairAddress) => {
+	const contract = new ethers.Contract(
+		uniswapV2PairAddress,
+		uniswapV2PairAbi,
+		defaults.network.provider,
+	)
+	return await contract.getReserves()
+}
+
+const getTotalLiquidity = async (uniswapV2PairAddress) => {
+	const contract = new ethers.Contract(
+		uniswapV2PairAddress,
+		uniswapV2PairAbi,
+		defaults.network.provider,
+	)
+	return await contract.totalSupply()
+}
 
 const approveERC20ToSpend = async (tokenAddress, spenderAddress, amount, provider) => {
 	const contract = new ethers.Contract(
@@ -435,6 +454,7 @@ const getLocks = async (address, lockIndex) => {
 }
 
 export {
+	getReserves, getTotalLiquidity,
 	approveERC20ToSpend, getERC20BalanceOf, resolveUnknownERC20,
 	estimateGasCost, getERC20Allowance,
 	convert, bondInfo, bondPrice, bondCurrentDebt,
