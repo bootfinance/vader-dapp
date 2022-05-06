@@ -928,7 +928,7 @@ const Bond = (props) => {
 																	fontSize={{ base: '0.6rem', md: '0.75rem' }}
 																	background='rgb(214, 188, 250)'
 																	color='rgb(128, 41, 251)'
-																>PURCHASE VALUE
+																>Payout
 																</Badge>
 															</>
 														}
