@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useWallet } from 'use-wallet'
 import { ethers } from 'ethers'
 import PropTypes from 'prop-types'
@@ -10,6 +10,7 @@ import { useBondInfo } from '../hooks/useBondInfo'
 import { useUniswapV2Price } from '../hooks/useUniswapV2Price'
 import defaults from '../common/defaults'
 import { useBondPrice } from '../hooks/useBondPrice'
+import { getReserves, getTotalLiquidity } from '../common/ethereum'
 
 export const BondItem = (props) => {
 
@@ -27,12 +28,31 @@ export const BondItem = (props) => {
 	const [usdcEth] = useUniswapV2Price(defaults.address.uniswapV2.usdcEthPair)
 	const [principalEth] = useUniswapV2Price(props.principal.address, true)
 	const { data: price } = useBondPrice(props.address)
+	const [bondValue, setBondValue] = useState()
+	const [roiPercentage, setROIPercentage] = useState()
 
-	const bondInitPrice = (Number(ethers.utils.formatUnits(price ? price : '0', 18)) *
-	(Number(usdcEth?.pairs?.[0]?.token0Price) * Number(principalEth?.principalPrice)))
-	const marketPrice = (Number(usdcEth?.pairs?.[0]?.token0Price) * Number(vaderEth?.pairs?.[0]?.token1Price))
-	const roi = calculateDifference(marketPrice, bondInitPrice)
-	const roiPercentage = isFinite(roi) ? getPercentage(roi)?.replace('-0', '0') : ''
+	useEffect(() => {
+		if (price && bondValue) {
+			getReserves(props.principal.address)
+				.then(([t0, t1]) => {
+					const marketPrice = Number(ethers.utils.formatUnits(t1, 18)) / Number(ethers.utils.formatUnits(t0, 18))
+					const roi = calculateDifference(marketPrice, bondValue)
+					setROIPercentage(isFinite(roi) ? getPercentage(roi)?.replace('-0', '0') : '')
+				})
+		}
+	}, [price, bondValue])
+
+	useEffect(() => {
+		if (price && props.principal.address) {
+			getReserves(props.principal.address)
+				.then(([t0, t1]) => {
+					getTotalLiquidity(props.principal.address)
+						.then(tot => {
+							setBondValue(Number(ethers.utils.formatUnits(price, 18)) * 2 * Number(ethers.utils.formatUnits(t1, 18)) / Number(ethers.utils.formatUnits(tot, 18)))
+						})
+				})
+		}
+	}, [price, props.principal.address])
 
 	return (
 		<>
@@ -105,8 +125,7 @@ export const BondItem = (props) => {
 										fontSize={{ base: '0.67rem', md: '0.83rem' }}
 										colorScheme='gray'>
 										{prettifyCurrency(
-											Number(ethers.utils.formatUnits(price, 18)) *
-											(Number(usdcEth?.pairs?.[0]?.token0Price) * Number(principalEth?.principalPrice)),
+											bondValue,
 											0, 5)}
 									</Tag>
 								</>
