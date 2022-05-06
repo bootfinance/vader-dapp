@@ -101,7 +101,7 @@ defaults.network.tx.confirmations = 2
 
 defaults.network.blockTime = {}
 defaults.network.blockTime.second = (
-	defaults.network.chainId === 1 ? 0.07570023 :
+	defaults.network.chainId === 1 ? 0.07407407 :
 		defaults.network.chainId === 4 ? 0.06666667 :
 			0)
 defaults.network.blockTime.minute = defaults.network.blockTime.second * 60
