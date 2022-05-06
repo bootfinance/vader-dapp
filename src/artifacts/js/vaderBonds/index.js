@@ -1,7 +1,7 @@
 const bonds = [
 	{
 		'name': 'Uni-v2 BOOTusd/BOOT LP Bond',
-		'address':'0x2b6155f7Dc6830CE9A402BDf999D628aDF1EA72c',
+		'address':'0xc5b8c9d43F9025a479Ee6A9b84cb8FEDfCb4213a',
 		'principal': {
 			'address':'0x620eFeAdCBe247e7B7cb00c72f77e76503a14a90',
 			'name':'Uniswap V2 BOOT/BOOTusd LP',
