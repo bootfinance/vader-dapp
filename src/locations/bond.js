@@ -1072,7 +1072,7 @@ const PriceOverview = (props) => {
 		if (props.bond?.[0]?.principal?.address) {
 			getReserves(props.bond?.[0]?.principal?.address)
 				.then(([t0, t1]) => {
-					setMarketPrice(Number(ethers.utils.formatUnits(t0, 18)) / Number(ethers.utils.formatUnits(t1, 18)))
+					setMarketPrice(Number(ethers.utils.formatUnits(t1, 18)) / Number(ethers.utils.formatUnits(t0, 18)))
 				})
 		}
 	}, [props.bond?.[0]?.principal?.address])
@@ -1083,7 +1083,7 @@ const PriceOverview = (props) => {
 				.then(([t0, t1]) => {
 					getTotalLiquidity(props.bond?.[0]?.principal?.address)
 						.then(tot => {
-							setBondValue(Number(ethers.utils.formatUnits(bondPrice, 18)) * 2 * Number(ethers.utils.formatUnits(t0, 18)) / Number(ethers.utils.formatUnits(tot, 18)))
+							setBondValue(Number(ethers.utils.formatUnits(bondPrice, 18)) * 2 * Number(ethers.utils.formatUnits(t1, 18)) / Number(ethers.utils.formatUnits(tot, 18)))
 						})
 				})
 		}
@@ -1263,9 +1263,9 @@ const Breakdown = (props) => {
 				.then(([t0, t1]) => {
 					getTotalLiquidity(props.bond?.[0]?.principal?.address)
 						.then(tot => {
-							const lpTokenValue = 2 * Number(ethers.utils.formatUnits(t0, 18)) / Number(ethers.utils.formatUnits(tot, 18))
+							const lpTokenValue = 2 * Number(ethers.utils.formatUnits(t1, 18)) / Number(ethers.utils.formatUnits(tot, 18))
 							const bondValue = lpTokenValue * Number(ethers.utils.formatUnits(bondPrice ? bondPrice : '0', 18))
-							const marketPrice = Number(ethers.utils.formatUnits(t0, 18)) / Number(ethers.utils.formatUnits(t1, 18))
+							const marketPrice = Number(ethers.utils.formatUnits(t1, 18)) / Number(ethers.utils.formatUnits(t0, 18))
 							const roi = calculateDifference(marketPrice, bondValue)
 							setROIPercentage(isFinite(roi) ? getPercentage(roi)?.replace('-0', '0') : '')
 						})
